@@ -17,5 +17,5 @@ func init() {
 type widgetHandler struct{}
 
 func (wh *widgetHandler) index(c *iris.Context) {
-	c.Render("index.html", nil)
+	c.Render("index.html", iris.Map{"url": "http://" + c.HostString()})
 }

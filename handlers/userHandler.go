@@ -13,9 +13,6 @@ func init() {
 		shared.Route{HttpMethod: "GET", Path: RootPath, HandlerFn: uhObj.index},
 	)
 	shared.MakeRoute(
-		shared.Route{HttpMethod: "GET", Path: RootPath + "/test", HandlerFn: uhObj.index},
-	)
-	shared.MakeRoute(
 		shared.Route{HttpMethod: "GET", Path: RootPath + "/:userId", HandlerFn: uhObj.detail},
 	)
 }
@@ -23,9 +20,9 @@ func init() {
 type userHandler struct{}
 
 func (uh *userHandler) index(c *iris.Context) {
-	c.Render("index.html", nil)
+	c.Render("index.html", iris.Map{"url": "http://" + c.HostString()})
 }
 
 func (uh *userHandler) detail(c *iris.Context) {
-	c.Render("index.html", nil)
+	c.Render("index.html", iris.Map{"url": "http://" + c.HostString()})
 }

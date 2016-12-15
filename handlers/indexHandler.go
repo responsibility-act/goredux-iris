@@ -17,5 +17,5 @@ func init() {
 type indexHandler struct{}
 
 func (ih *indexHandler) index(c *iris.Context) {
-	c.Render("index.html", nil)
+	c.Render("index.html", iris.Map{"url": "http://" + c.HostString()})
 }
