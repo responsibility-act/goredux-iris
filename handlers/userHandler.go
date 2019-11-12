@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"github.com/adred/goredux/shared"
-	"github.com/kataras/iris"
+	"github.com/kataras/iris/v12"
 )
 
 func init() {
@@ -19,10 +19,10 @@ func init() {
 
 type userHandler struct{}
 
-func (uh *userHandler) index(c *iris.Context) {
-	c.Render("index.html", iris.Map{"url": "http://" + c.HostString()})
+func (uh *userHandler) index(c iris.Context) {
+	c.View("index.html", iris.Map{"url": "http://" + c.Host()})
 }
 
-func (uh *userHandler) detail(c *iris.Context) {
-	c.Render("index.html", iris.Map{"url": "http://" + c.HostString()})
+func (uh *userHandler) detail(c iris.Context) {
+	c.View("index.html", iris.Map{"url": "http://" + c.Host()})
 }

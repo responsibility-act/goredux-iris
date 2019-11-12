@@ -1,11 +1,11 @@
 package shared
 
-import "github.com/kataras/iris"
+import "github.com/kataras/iris/v12"
 
 type Route struct {
 	HttpMethod string
-	Path string
-	HandlerFn iris.HandlerFunc
+	Path       string
+	HandlerFn  iris.Handler
 }
 
 var RouteList []Route

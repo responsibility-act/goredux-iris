@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"github.com/adred/goredux/shared"
-	"github.com/kataras/iris"
+	"github.com/kataras/iris/v12"
 )
 
 func init() {
@@ -16,6 +16,6 @@ func init() {
 
 type widgetHandler struct{}
 
-func (wh *widgetHandler) index(c *iris.Context) {
-	c.Render("index.html", iris.Map{"url": "http://" + c.HostString()})
+func (wh *widgetHandler) index(c iris.Context) {
+	c.View("index.html", iris.Map{"url": "http://" + c.Host()})
 }
